@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14306a"/><stop offset="1" stop-color="#0a1330"/></linearGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0faff"/><stop offset="1" stop-color="#b6d8f0"/></linearGradient>
+    <radialGradient id="mal" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#ffb48c"/><stop offset=".55" stop-color="#ee4a2c"/><stop offset="1" stop-color="#8a1a0c"/></radialGradient>
+    <radialGradient id="pk" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#3d4a63"/><stop offset=".6" stop-color="#171d2b"/><stop offset="1" stop-color="#07090f"/></radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g fill="#ffc857"><circle cx="70" cy="46" r="9"/><circle cx="160" cy="34" r="9" fill="#ff7a59"/><circle cx="256" cy="28" r="9" fill="#5de0d0"/><circle cx="352" cy="34" r="9" fill="#ff5f9e"/><circle cx="442" cy="46" r="9"/></g>
+  <rect x="58" y="78" width="396" height="392" rx="64" fill="#eef6ff"/>
+  <rect x="76" y="96" width="360" height="356" rx="48" fill="url(#ice)"/>
+  <rect x="76" y="270" width="360" height="9" fill="#d6405a" opacity=".8"/>
+  <circle cx="256" cy="274" r="62" fill="none" stroke="#3470c8" stroke-width="7" opacity=".6"/>
+  <path d="M196 96h120v14a60 60 0 0 1-120 0z" fill="#16294f"/>
+  <circle cx="196" cy="96" r="9" fill="#fff"/><circle cx="196" cy="96" r="5.5" fill="#e0443b"/><circle cx="316" cy="96" r="9" fill="#fff"/><circle cx="316" cy="96" r="5.5" fill="#e0443b"/>
+  <path d="M300 250 Q260 330 226 372" stroke="#3470c8" stroke-width="5" stroke-dasharray="3 12" stroke-linecap="round" fill="none" opacity=".7"/>
+  <ellipse cx="248" cy="392" rx="76" ry="70" fill="#0a2a5c" opacity=".25"/>
+  <circle cx="230" cy="390" r="74" fill="url(#mal)" stroke="#0c162c" stroke-width="7"/>
+  <circle cx="230" cy="390" r="46" fill="#a82a14" opacity=".5"/>
+  <circle cx="230" cy="390" r="30" fill="url(#mal)" stroke="#0c162c" stroke-width="5"/>
+  <ellipse cx="316" cy="258" rx="38" ry="38" fill="#02030a" transform="translate(0 7)"/>
+  <circle cx="316" cy="258" r="38" fill="url(#pk)" stroke="#9fc0e6" stroke-width="5" stroke-opacity=".55"/>
+</svg>

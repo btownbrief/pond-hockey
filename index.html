@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0a1330">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="Pond Hockey — a backyard air-hockey-style puck battle. First to 7.">
+<title>Pond Hockey</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="c"></canvas>
+
+  <!-- in-game pause buttons (bottom = player 1, top = player 2 in rotated 2-player mode) -->
+  <button id="pauseB" class="pausebtn ui" aria-label="Pause" hidden><i></i><i></i></button>
+  <button id="pauseT" class="pausebtn ui flip" aria-label="Pause" hidden><i></i><i></i></button>
+
+  <!-- title -->
+  <section id="title" class="screen ui">
+    <div class="logo">
+      <span class="l1">POND</span>
+      <svg class="puck" viewBox="0 0 80 40" aria-hidden="true"><ellipse cx="40" cy="26" rx="34" ry="12" fill="#05070c"/><rect x="6" y="14" width="68" height="12" fill="#0d121d"/><ellipse cx="40" cy="14" rx="34" ry="12" fill="#1b2434"/><ellipse cx="40" cy="14" rx="26" ry="8" fill="#0d121d"/><path d="M14 11 Q40 2 66 11" stroke="#8fb4d9" stroke-width="2" fill="none" opacity=".7"/></svg>
+      <span class="l2">HOCKEY</span>
+    </div>
+    <div class="tag">backyard air-hockey-style puck battle</div>
+    <div class="grow"></div>
+    <div class="panel">
+      <div class="lab">Opponent</div>
+      <div class="chips" id="chips"></div>
+      <div class="oppblurb" id="oppBlurb"></div>
+      <button id="btnPlay" class="big">PLAY</button>
+      <div class="row">
+        <button id="btn2p" class="mid">2 PLAYERS <small>one phone</small></button>
+        <button id="btnDaily" class="mid daily">📅 DAILY</button>
+      </div>
+      <div class="toggles" id="togglesTitle"></div>
+      <button id="btnTrophies" class="trbtn">🏆 Trophies &amp; Mallets <b id="trCount">0/11</b></button>
+      <div class="how">Drag to slide your mallet &middot; first to 7 wins</div>
+    </div>
+  </section>
+
+  <!-- pause -->
+  <section id="pause" class="screen ui" hidden>
+    <div class="card">
+      <h2>PAUSED</h2>
+      <button id="btnResume" class="big">RESUME</button>
+      <div class="row">
+        <button id="btnRestart" class="mid">Restart</button>
+        <button id="btnQuit" class="mid">Quit</button>
+      </div>
+      <div class="toggles" id="togglesPause"></div>
+    </div>
+  </section>
+
+  <!-- trophy case -->
+  <section id="trophies" class="screen ui" hidden>
+    <div class="card">
+      <h2>TROPHIES</h2>
+      <div class="sklab">Your mallet</div>
+      <div class="sklist" id="skList"></div>
+      <div class="skhint" id="skHint">Earn new mallets with trophies and dailies</div>
+      <div class="trsub">Skill badges vs the CPU. Bank shots are the secret.</div>
+      <div class="trlist" id="trList"></div>
+      <button id="btnTrBack" class="mid">Back</button>
+    </div>
+  </section>
+
+  <!-- daily challenge -->
+  <section id="dailyS" class="screen ui" hidden>
+    <div class="card">
+      <h2>DAILY POND</h2>
+      <div class="dlydate" id="dlyDate"></div>
+      <div class="dlybody" id="dlyBody"></div>
+      <div class="dlystreak" id="dlyStreak"></div>
+      <button id="btnDlyGo" class="big">PLAY DAILY</button>
+      <button id="btnDlyBack" class="mid">Back</button>
+    </div>
+  </section>
+
+  <!-- 2-player result: one half faces each player -->
+  <section id="over2" class="screen ui" hidden>
+    <div class="half top" id="o2T"></div>
+    <div class="half bot" id="o2B"></div>
+  </section>
+
+  <!-- game over -->
+  <section id="over" class="screen ui" hidden>
+    <div class="card">
+      <h2 class="flipH" id="ovHeadFlip"></h2>
+      <h2 id="ovHead">YOU WIN!</h2>
+      <div class="finalscore" id="ovScore">7 &ndash; 3</div>
+      <div class="streakline" id="ovStreak"></div>
+      <div class="ovquote" id="ovQuote"></div>
+      <div class="stats" id="ovStats"></div>
+      <div class="ovtro" id="ovTro" hidden></div>
+      <button id="btnAgain" class="big">REMATCH</button>
+      <div class="row">
+        <button id="btnNext" class="mid" hidden>Next opponent</button>
+        <button id="btnMenu" class="mid">Menu</button>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="rotHint" aria-hidden="true">↻ Turn your phone upright for a bigger rink</div>
+<div id="probe"></div>
+<div id="svh"></div>
+<script src="physics.js"></script>
+<script src="ai.js"></script>
+<script src="audio.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
